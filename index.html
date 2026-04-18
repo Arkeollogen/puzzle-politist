@@ -135,6 +135,7 @@ button{
   border-radius:14px;padding:8px;
   box-shadow:0 0 40px rgba(0,0,0,0.5);
   position:relative;z-index:1;
+  touch-action:none;
 }
 .tile{
   border-radius:8px;cursor:grab;
@@ -142,6 +143,7 @@ button{
   transition:transform 0.15s,border-color 0.15s,box-shadow 0.15s;
   position:relative;overflow:hidden;
   user-select:none;-webkit-user-select:none;
+  touch-action:none;
 }
 .tile:hover{border-color:var(--accent);transform:scale(1.05);box-shadow:0 0 12px var(--glow);z-index:10;}
 .tile.dragging{opacity:0.45;transform:scale(0.93);cursor:grabbing;}
@@ -221,7 +223,7 @@ button{
 <div class="controls">
   <select id="mode" onchange="changeMode()">
     <option value="2x3">2x3 — Foarte Usor</option>
-    <option value="3">3x3 — Usor</option>
+    <option value="3" selected>3x3 — Usor</option>
     <option value="4">4x4 — Mediu</option>
     <option value="5">5x5 — Dificil</option>
   </select>
