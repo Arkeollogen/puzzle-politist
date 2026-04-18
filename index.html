@@ -369,7 +369,8 @@ function initGame(){
     div.addEventListener('dragenter',dragEnter);
     div.addEventListener('dragleave',dragLeave);
     div.addEventListener('drop',drop);
-    div.addEventListener('touchstart',touchStart,{passive:true});
+    div.addEventListener('touchstart',touchStart,{passive:false});
+    div.addEventListener('touchmove',function(e){e.preventDefault();},{passive:false});
     div.addEventListener('touchend',touchEnd);
     board.appendChild(div);tiles.push(div);
   }
@@ -406,7 +407,7 @@ function drop(e){
   setTimeout(function(){target.classList.remove('correct-flash');},500);
   checkWin();
 }
-function touchStart(e){touchStartTile=e.currentTarget;touchStartTile.style.opacity='0.5';touchStartTile.style.transform='scale(0.95)';}
+function touchStart(e){e.preventDefault();touchStartTile=e.currentTarget;touchStartTile.style.opacity='0.5';touchStartTile.style.transform='scale(0.95)';}
 function touchEnd(e){
   if(!touchStartTile)return;
   touchStartTile.style.opacity='1';touchStartTile.style.transform='';
